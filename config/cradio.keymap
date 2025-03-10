@@ -56,11 +56,11 @@
         //│ ESC      │  7       │  8       │  9       │  /       │   │          │          │          │ /        │  \       │
             &kp ESC    &kp N7     &kp N8     &kp N9     &kp FSLH       &trans     &trans     &trans     &kp FSLH    &kp BSLH
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ TAB      │  4       │  5       │  6       │          │   │          │ [        │ ]        │ `        │   '      │
-            HRML(TAB,     N4,       N5,        N6)      &kp MINUS      &trans    HRMR(LBKT,   RBKT,      GRAVE,     APOS)
+        //│ TAB      │  4       │  5       │  6       │          │   |  BSPC    │ [        │ ]        │ `        │   ;      │
+            HRML(TAB,     N4,       N5,        N6)      &kp MINUS      &kp BSPC  HRMR(LBKT,   RBKT,      GRAVE,     SEMI)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ TO 0     │  1       │  2       │  3       │  =   +   │   │  BCSP    │  DEL     │          │          │          │
-            &to 0       &kp N1     &kp N2     &kp N3    &kp EQUAL      &kp BSPC    &kp DEL    &trans     &trans     &to 2
+        //│ TO 0     │  1       │  2       │  3       │  =   +   │   │  DEL     │          │          │          │  TO 2    │
+            &to 0       &kp N1     &kp N2     &kp N3    &kp EQUAL      &kp DEL    &trans     &trans     &trans     &to 2
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &kp N0      &kp DOT        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -76,7 +76,7 @@
         //│  CAPS    │  LEFT    │  DOWN    │  RIGHT   │  SHIFT   │   │  F5      │  F6      │  F7      │  F8      │  SHIFT   │
             &kp CAPS   &kp LEFT   &kp DOWN   &kp RIGHT  &kp LSHFT      &kp F5     &kp F6     &kp F7     &kp F8     &kp RSHFT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │  HOME    │   GUI    │          │  ALT     │   │  F9      │  F10     │  F11     │  F12     │          │
+        //│  TO 0    │  HOME    │   GUI    │  END     │  ALT     │   │  F9      │  F10     │  F11     │  F12     │ TO 3     │
             &to 0      &kp HOME   &kp LGUI   &kp END    &kp LALT       &kp F9     &kp F10    &kp F11    &kp F12    &to 3
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &kp BSPC   &kp DEL         &trans     &trans
@@ -87,14 +87,14 @@
         bluetooth_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset
+        //│ PROFILE 0│ PROFILE 1│ PROFILE 2│ PROFILE 3| PROFILE 4│   │          │          │          │BOOTLOADER│  RESET   │
+ &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &kp N1     &kp N1     &kp N1   &bootloader &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader
+        //│          │          │          │          |          │   │          │          │          │          │          │
+             &kp N1     &kp N1     &kp N1     &kp N1    &kp N1          &kp N1     &kp N1     &kp N1     &kp N1      &kp N1
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &to 0      &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &to 0
+        //│ TO 0     │          │          │          | CLEAR BT │   │          │          │          │          │ TO 0     │
+            &to 0      &kp N1     &kp N1     &kp N1    &bt BT_CLR       &kp N1     &kp N1     &kp N1     &kp N1     &to 0
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
