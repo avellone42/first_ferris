@@ -87,14 +87,14 @@
         bluetooth_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ PROFILE 0│ PROFILE 1│ PROFILE 2│ PROFILE 3| PROFILE 4│   │          │          │          │BOOTLOADER│  RESET   │
- &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &kp N1     &kp N1     &kp N1   &bootloader &sys_reset
+        //│ PROFILE 0│ PROFILE 1│ PROFILE 2│ PROFILE 3| PROFILE 4│   │          │          │          │          │          │
+ &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &kp N1     &kp N1     &kp N1     &kp N1     &kp N1
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          |          │   │          │          │          │          │          │
-             &kp N1     &kp N1     &kp N1     &kp N1    &kp N1          &kp N1     &kp N1     &kp N1     &kp N1      &kp N1
+        //│ CLEAR BT │          │          │          |          │   │          │          │          │          │          │
+           &bt BT_CLR   &kp N1     &kp N1     &kp N1    &kp N1          &kp N1     &kp N1     &kp N1     &kp N1     &kp N1
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ TO 0     │          │          │          | CLEAR BT │   │          │          │          │          │ TO 0     │
-            &to 0      &kp N1     &kp N1     &kp N1    &bt BT_CLR       &kp N1     &kp N1     &kp N1     &kp N1     &to 0
+        //│ TO 0     │          │          │  RESET   │BOOTLOADER│   │BOOTLOADER│  RESET   │          │          │ TO 0     │
+            &to 0      &kp N1     &kp N1    &sys_reset &bootloader    &bootloader &sys_reset  &kp N1     &kp N1     &to 0
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
